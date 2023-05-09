@@ -29,9 +29,21 @@ function App() {
     }, 1500);
   }
 
+  // function to remove the color set by pallet
+  const removeBodyClasses = ()=>{
+    document.body.classList.remove('bg-light');
+    document.body.classList.remove('bg-danger');
+    document.body.classList.remove('bg-success');
+    document.body.classList.remove('bg-warning');
+    document.body.classList.remove('bg-dark');
+  }
+
    // arrow function of togglemode
-   const toggleMode = ()=>{
+   const toggleMode = (cls)=>{
+    removeBodyClasses();
     if(mode === 'light') {
+      console.log(cls);
+      document.body.classList.add('bg-'+cls)
       setMode('dark');
       document.body.style.backgroundColor = '#042743';
       showAlert('Dark mode has been enabled', 'success');
